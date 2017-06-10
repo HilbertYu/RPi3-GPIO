@@ -10,6 +10,7 @@
 #define GPIO_READ(g)  *(gpio.addr + 13) &= (1<<(g))
 
 int map_peripheral(struct bcm2835_peripheral *p);
+void unmap_peripheral(struct bcm2835_peripheral *p);
 
 int main(void)
 {
@@ -21,23 +22,15 @@ int main(void)
     }
 
     int g = 4;
-    // Define pin 7 as output
     INP_GPIO(g);
     OUT_GPIO(g);
 
-//    printf("rd = %u\n", GPIO_READ(g));
-//    while(1)
     {
-        // Toggle pin 7 (blink a led!)
         GPIO_SET = (1 << g);
         sleep(2);
 
         GPIO_CLR = (1 << g);
         sleep(2);
- //   printf("rd = %u\n", GPIO_READ(g));
-
-   //     GPIO_CLR = 1 << g;
-  //      sleep(1);
     }
 
     unmap_peripheral(&gpio);
