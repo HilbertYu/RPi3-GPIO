@@ -29,5 +29,7 @@ struct bcm2835_peripheral
 
 extern struct bcm2835_peripheral gpio;  // They have to be found somewhere, but can't be in the header
 
+int map_peripheral(struct bcm2835_peripheral *p);
+void unmap_peripheral(struct bcm2835_peripheral *p);
 
 #endif /* end of include guard: RPI_H */
