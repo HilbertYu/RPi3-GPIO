@@ -38,6 +38,22 @@ void* rec(void* s)
             gpios.setOuput(4, RPiGpio::LOW);
 
         }
+        else if (strcmp(buf, "22l") == 0)
+        {
+            gpios.setOuput(22, RPiGpio::LOW);
+        }
+        else if (strcmp(buf, "22h") == 0)
+        {
+            gpios.setOuput(22, RPiGpio::HIGH);
+        }
+        else if (strcmp(buf, "27l") == 0)
+        {
+            gpios.setOuput(27, RPiGpio::LOW);
+        }
+        else if (strcmp(buf, "27h") == 0)
+        {
+            gpios.setOuput(27, RPiGpio::HIGH);
+        }
         else if (strcmp(buf, "bye") == 0)
         {
             gpios.setOuput(4, RPiGpio::LOW);
@@ -66,28 +82,56 @@ int main(int argc, const char * argv[])
     gpios.setup(27, RPiGpio::FUNC_OUPUT);
     gpios.setup(22, RPiGpio::FUNC_OUPUT);
 
+    gpios.setOuput(22, RPiGpio::LOW);
+    gpios.setOuput(27, RPiGpio::LOW);
+    gpios.setOuput(4, RPiGpio::LOW);
+    gpios.setOuput(17, RPiGpio::LOW);
 
-    gpios.setOuput(22, RPiGpio::HIGH);
+//    return 0;
+
+//    gpios.setOuput(22, RPiGpio::HIGH);
+//    gpios.setOuput(27, RPiGpio::HIGH);
+#if 0
+    //gpios.setOuput(22, RPiGpio::HIGH);
+    //gpios.setOuput(27, RPiGpio::HIGH);
+
+
     gpios.setOuput(27, RPiGpio::HIGH);
+    gpios.setOuput(22, RPiGpio::LOW);
+    sleep(2);
 
+    gpios.setOuput(22, RPiGpio::LOW);
+    gpios.setOuput(27, RPiGpio::LOW);
+    sleep(1);
+
+    gpios.setOuput(27, RPiGpio::LOW);
+    gpios.setOuput(22, RPiGpio::HIGH);
+
+    sleep(2);
+    gpios.setOuput(22, RPiGpio::LOW);
+    gpios.setOuput(27, RPiGpio::LOW);
+
+//    return 0;
+ //   return 0;
+#endif
 
 #if 0
     gpios.setOuput(4, RPiGpio::HIGH);
     gpios.setOuput(17, RPiGpio::LOW);
-    sleep(3);
+    sleep(2);
 
     gpios.setOuput(17, RPiGpio::LOW);
     gpios.setOuput(4, RPiGpio::LOW);
-    sleep(3);
+    sleep(1);
 
     gpios.setOuput(4, RPiGpio::LOW);
     gpios.setOuput(17, RPiGpio::HIGH);
 
-    sleep(3);
+    sleep(2);
     gpios.setOuput(17, RPiGpio::LOW);
     gpios.setOuput(4, RPiGpio::LOW);
-    return 0;
 #endif
+
 
 
 
@@ -111,6 +155,10 @@ int main(int argc, const char * argv[])
         ret = cl->send_all(buf, len);
 #endif
     }
+    gpios.setOuput(22, RPiGpio::LOW);
+    gpios.setOuput(27, RPiGpio::LOW);
+    gpios.setOuput(4, RPiGpio::LOW);
+    gpios.setOuput(17, RPiGpio::LOW);
 
     return 0;
 }
