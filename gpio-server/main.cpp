@@ -63,6 +63,34 @@ int main(int argc, const char * argv[])
     gpios.setup(4, RPiGpio::FUNC_OUPUT);
     gpios.setup(17, RPiGpio::FUNC_OUPUT);
 
+    gpios.setup(27, RPiGpio::FUNC_OUPUT);
+    gpios.setup(22, RPiGpio::FUNC_OUPUT);
+
+
+    gpios.setOuput(22, RPiGpio::HIGH);
+    gpios.setOuput(27, RPiGpio::HIGH);
+
+
+#if 0
+    gpios.setOuput(4, RPiGpio::HIGH);
+    gpios.setOuput(17, RPiGpio::LOW);
+    sleep(3);
+
+    gpios.setOuput(17, RPiGpio::LOW);
+    gpios.setOuput(4, RPiGpio::LOW);
+    sleep(3);
+
+    gpios.setOuput(4, RPiGpio::LOW);
+    gpios.setOuput(17, RPiGpio::HIGH);
+
+    sleep(3);
+    gpios.setOuput(17, RPiGpio::LOW);
+    gpios.setOuput(4, RPiGpio::LOW);
+    return 0;
+#endif
+
+
+
     HySocketServer * s = new HySocketServer;
     s->setup("0.0.0.0", 20000);
     HySocketClient * cl = s->accept();
