@@ -18,7 +18,8 @@
 #define BLOCK_SIZE      (4*1024)
 
 // IO Acces
-struct bcm2835_peripheral {
+struct bcm2835_peripheral
+{
     unsigned long addr_p;
     int mem_fd;
     void *map;
