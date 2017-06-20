@@ -69,6 +69,19 @@ public:
         }
     }
 
+    void setMultiOuput(int pin, int lv)
+    {
+        if (lv == HIGH)
+        {
+            *(m_gpio.addr + 7)  = pin;
+        }
+        else
+        {
+            *(m_gpio.addr + 10)  = pin;
+        }
+    }
+
+
 };
 
 

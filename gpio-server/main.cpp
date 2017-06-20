@@ -60,6 +60,21 @@ int main(int argc, const char * argv[])
         return -1;
     }
 
+    {
+        gpios.setup(2, RPiGpio::FUNC_OUPUT);
+        gpios.setup(3, RPiGpio::FUNC_OUPUT);
+        gpios.setup(17, RPiGpio::FUNC_OUPUT);
+
+        unsigned int a = (1 << 2) | (1 << 17);
+
+        gpios.setMultiOuput(a, RPiGpio::HIGH);
+        sleep(2);
+
+        gpios.setMultiOuput(~0, RPiGpio::LOW);
+        return 0;
+
+    }
+
     gpios.setup(4, RPiGpio::FUNC_OUPUT);
     gpios.setup(17, RPiGpio::FUNC_OUPUT);
 
